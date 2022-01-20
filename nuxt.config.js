@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== 'production') require('dotenv').config()
+
+const ENV = process.env.NODE_ENV || 'developement'
+const PORT = process.env.PORT || 3333
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -15,7 +19,10 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
+  server: {
+    port: PORT,
+    host: ENV !== 'production' ? HOST : '0.0.0.0'
+  },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
