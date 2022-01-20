@@ -41,7 +41,7 @@
           <p class="label-text">On vous aidera à répondre à toutes ces questions de manière simple et intuitive.</p>
         </div>
         <div class="label">
-          <h3 class="label-title">Essyez pour être sûr</h3>
+          <h3 class="label-title">Essayez pour être sûr</h3>
           <p class="label-emoji bike">🚲</p>
           <p class="label-text">Vous essayez et vous payez ensuite.</p>
           <p class="label-text">+ 14 jours pour vous rétracter si il y a le moindre soucis.</p>
