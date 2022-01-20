@@ -277,7 +277,7 @@ input[type='number'] {
   display: flex;
   background-color: black;
   color: white;
-  border-radius: 40px;
+  border-radius: 10px;
   padding-top: 0.3rem;
   padding-left: 3rem;
   padding-right: 3rem;

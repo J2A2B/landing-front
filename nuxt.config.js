@@ -2,6 +2,7 @@ if (process.env.NODE_ENV !== 'production') require('dotenv').config()
 
 const ENV = process.env.NODE_ENV || 'developement'
 const PORT = process.env.PORT || 3333
+const HOST = process.env.NODE_HOST || 'localhost'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
