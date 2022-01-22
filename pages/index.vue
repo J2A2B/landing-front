@@ -25,7 +25,7 @@
       </div>
       <form class="form" id="nl" @submit.prevent="sendForm">
         <h2 class="nl-title">Ce projet vélo vous intéresse ?</h2>
-        <p class="nl-text">Incrivez vous pour être prévenu des actualités et du moment de sa sortie.</p>
+        <p class="nl-text">Inscrivez vous pour être prévenu des actualités et du moment de sa sortie.</p>
         <div class="input-wrapper">
           <input required type="email" placeholder="Votre email" @input="updateEmail" v-model="email">
         </div>
