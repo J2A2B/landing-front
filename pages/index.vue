@@ -67,7 +67,7 @@
           <p class="label-text">Des centaines de milliers de clients disponibles.</p>
         </div>
         <div class="label">
-          <h3 class="label-title">Des bonus pour booster votre annonce</h3>
+          <h3 class="label-title">Des bonus pour booster vos annonces</h3>
           <p class="label-emoji bike">🚀</p>
           <p class="label-text">La possibilité de faire remonter votre annonce en top liste.</p>
           <p class="label-text">L'occasion de voir votre annonce apparaitre directement dans nos publicités.</p>
