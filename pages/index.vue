@@ -1,82 +1,45 @@
 <template>
-  <div>
+  <div class="main-page">
     <header>
       <div class="logo">
         <div class="black-line"></div>
         <div class="red-line"></div>
         <div class="green-line"></div>
       </div>
-      <a href="#nl" class="link">Inscription</a>
     </header>
-    <div class="page">
-      <h1 class="value-proposition">Achetez et Vendez le meilleur du vélo d'occasion</h1>
-      <p class="subtitle">Bientôt ici</p>
-      <div class="top-section">
-        <img class="image" src="/bike-(1).png" alt="Vélo d'occasion">
-        <div class="top-section-text">
-          <h2 class="top-title">Une marketplace du vélo unique en son genre !</h2>
-          <p class="top-text">👉 Touvez votre vélo idéal parmis des milliers de vélos d'occasion.</p>
-          <p class="top-text">👉 Proposez à la vente votre ancien vélo à des milliers d'acheteurs.</p>
-          <p class="top-text">👉 Achetez ou vendez des accessoires vélo.</p>
-          <p class="top-text">👉 Bénéficiez d'un accompagnement personnalisé.</p>
-          <p class="top-text">👉 Faire une bonne action pour la planète en promouvant l'occasion durable et responsable.</p>
-          <p class="top-text">👉 Bon pour la planète, acheter d'occasion et pas cher est aussi bon pour votre portefeuille.</p>
-        </div>
-      </div>
-      <form class="form" id="nl" @submit.prevent="sendForm">
-        <h2 class="nl-title">Ce projet vélo vous intéresse ?</h2>
-        <p class="nl-text">Inscrivez vous pour être prévenu des actualités et du moment de sa sortie.</p>
-        <div class="input-wrapper">
-          <input required type="email" placeholder="Votre email" @input="updateEmail" v-model="email">
-        </div>
-        <div class="input-wrapper">
-          <textarea name="" id="" cols="30" rows="10" placeholder="Une question ? Une remarque ? C'est ici..." @input="updateText" v-model="text"></textarea>
-        </div>
+    <div>
+      <div class="wrapper-vid">
+      <video poster="https://saikle-prod.fra1.digitaloceanspaces.com/large_video_adb52fcefa.jpg" playsinline="" loop="loop" muted="muted" autoplay="autoplay" class="video-home" data-v-36f5bf99="">
+        <source src="/bike_vid.mp4" type="video/mp4" data-v-36f5bf99="">
+        <img alt="" src="https://saikle-prod.fra1.digitaloceanspaces.com/large_video_adb52fcefa.jpg" loading="lazy" data-v-36f5bf99="">
+      </video>
+        <form class="form" id="nl" @submit.prevent="sendForm">
+          <h1 class="nl-title">Ce projet vélo vous intéresse ?</h1>
+          <p class="nl-text">Inscrivez vous pour être prévenu des actualités et du moment de sa sortie.</p>
+          <div class="input-wrapper">
+            <input required type="email" placeholder="Ajoutez votre email pour en savoir plus" @input="updateEmail" v-model="email">
+          </div>
           <button class="button" type="submit">INSCRIPTION</button>
-        <p v-if="success" class="success">{{success}}</p>
-        <p v-if="error" class="error">{{error}}</p>
-      </form>
-      <div class="label-wrapper">
-        <h2 class="label-main-title">Comment acheter un vélo ?</h2>
-        <div class="label">
-          <h3 class="label-title">Trouvez le vélo qui vous convient</h3>
-          <p class="label-emoji">👌</p>
-          <p class="label-text">Quelle taille? Quel poid ? Quel modèle ?</p>
-          <p class="label-text">On vous aidera à répondre à toutes ces questions de manière simple et intuitive.</p>
-        </div>
-        <div class="label">
-          <h3 class="label-title">Essayez pour être sûr</h3>
-          <p class="label-emoji bike">🚲</p>
-          <p class="label-text">Vous essayez et vous payez ensuite.</p>
-          <p class="label-text">+ 14 jours pour vous rétracter si il y a le moindre soucis.</p>
-        </div>
-        <div class="label">
-          <h3 class="label-title">Des services gratuis</h3>
-          <p class="label-emoji">🔧</p>
-          <p class="label-text">Une garantie 1an. Un service de réparation.</p>
-          <p class="label-text">Une assistance technique en ligne.</p>
-          <p class="label-text">Une révision gratuite à 6 mois.</p>
+          <p v-if="success" class="success">{{success}}</p>
+          <p v-if="error" class="error">{{error}}</p>
+        </form>
+      </div>
+      <div class="page">
+        <h2 class="subtitle">La nouvelle maketplace des vélos d'occasion</h2>
+        <div class="wrapper-blocks">
+          <div class="block-img"><img src="/image.jpg" alt="" class="image"><p class="text-img">Achetez un super vélo</p></div>
+          <div class="block-img"><img src="/image.jpg" alt="" class="image"><p class="text-img">Achetez un super vélo</p></div>
+          <div class="block-img"><img src="/image.jpg" alt="" class="image"><p class="text-img">Achetez un super vélo</p></div>
         </div>
       </div>
-      <div class="label-wrapper label-wrapper2">
-        <h2 class="label-main-title">Comment vendre un vélo ?</h2>
-        <div class="label">
-          <h3 class="label-title">Publiez en moins de 2 minutes</h3>
-          <p class="label-emoji">⏱️</p>
-          <p class="label-text">Des conseils à chaque étape pour bien vendre.</p>
-          <p class="label-text">Des centaines de milliers de clients disponibles.</p>
+      <div class="wrapper-bottom">
+        <div class="wrapper-img-bottom">
+          <img src="/image-bottom.jpg" alt="" class="" class="img-bottom">
         </div>
-        <div class="label">
-          <h3 class="label-title">Des bonus pour booster vos annonces</h3>
-          <p class="label-emoji bike">🚀</p>
-          <p class="label-text">La possibilité de faire remonter votre annonce en top liste.</p>
-          <p class="label-text">L'occasion de voir votre annonce apparaitre directement dans nos publicités.</p>
-        </div>
-        <div class="label">
-          <h3 class="label-title">Un suivi des ventes utile et intuitif</h3>
-          <p class="label-emoji">📊</p>
-          <p class="label-text">Un espace de gestion des ventes intuitif.</p>
-          <p class="label-text">L'accès à des statistiques pour augmenter ses chances de vendre.</p>
+        <div class="wrapper-text-bottom">
+          <h2>Le confort d'un chez-soi, en déplacement
+          </h2>
+          <p>Pour un voyage d'affaires ou si vous vous installez dans une nouvelle ville, trouvez des logements et des boutiques-hôtels ayant reçu des commentaires 5 étoiles de la part d'autres voyageurs d'affaires.</p>
         </div>
       </div>
     </div>
@@ -98,9 +61,6 @@ export default {
   methods: {
     updateEmail(value) {
       this.email = value.target.value
-    },
-    updateText(value) {
-      this.text = value.target.value
     },
     async sendForm(){
       this.success = ''
@@ -132,16 +92,23 @@ export default {
 }
 </script>
 <style>
+.main-page {
+  position: relative;
+  overflow: hidden;
+}
 .reset-body, p, h1, h2, h3 {
   padding: 0;
   margin: 0;
   font-family: Avenir;
   font-weight: initial;
 }
+.video-home {
+  width: 100%;
+}
 .subtitle {
   text-align: center;
   font-style: italic;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 .success {
   color: green;
@@ -149,51 +116,17 @@ export default {
 .error {
   color: red;
 }
-.top-section {
-  display: flex;
-  align-items: center;
-  background-color: #fdf474;
-  border-radius: 50px;
-  padding: 100px;
-  margin-bottom: 70px;
-}
-.top-section-text {
-  margin-left: 50px;
-  display: flex;
-  flex-direction: column;
-  font-size: 20px;
-}
-.top-text {
-  margin-bottom: 10px;
-}
-.top-title {
-  margin-bottom: 40px;
-  font-size: 30px;
-}
-.image {
-  height: 300px;
-  border-radius: 50px;
-}
-.value-proposition {
-  text-align: center;
-  font-size: 46px;
-  font-weight: bold;
-}
 header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
   display: flex;
   justify-content: space-between;
   padding: 20px;
   padding-right: 40px;
   padding-left: 40px;
-  border-bottom: 1px solid #e1e1e1;
-}
-.link {
-  margin-top: 10px;
-  color: black;
-  text-decoration: none;
-}
-.link:hover {
-  opacity: 0.8;
+  background-color: transparent;
 }
 .logo {
   width: fit-content;
@@ -223,70 +156,21 @@ header {
   margin: auto;
   max-width: 1380px;
 }
-.label-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  position: relative;
-  border: 1px solid #FF486D;
-  padding: 50px;
-  border-radius: 20px;
-  text-align: center;
-  margin-bottom: 120px;
-}
-.label-wrapper2 {
-  border: 1px solid #C8E8E3;
-}
-.label-main-title {
-  position: absolute;
-  top: -30px;
-  font-size: 32px;
-  background-color: white;
-  padding: 10px;
-  padding-right: 20px;
-  padding-left: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 5px;
-}
+
 .nl-title {
   font-weight: normal;
-  font-size: 32px;
-  text-align: center;
+  font-size: 46px;
+  color: white;
+  font-weight: bold;
+  width: 380px;
+  line-height: 50px;
 }
 .nl-text {
+  color: white;
   margin-top: 20px;
   margin-bottom: 20px;
   max-width: 350px;
-  text-align: center;
-}
-.label{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 33%;
-}
-.label:nth-child(3){
-  padding-right: 20px;
-  padding-left: 20px;
-}
-.label:nth-child(2){
-  padding-right: 20px;
-}
-.label:nth-child(4){
-  padding-left: 20px;
-}
-.label-emoji {
-  font-size: 40px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-.bike {
-  font-size: 50px;
-}
-.label-title {
-  font-size: 20px;
+  width: 280px;
 }
 input, textarea {
   border: 1px solid #e1e1e1;
@@ -313,20 +197,22 @@ input[type='number'] {
 .input::placeholder {
   letter-spacing: 0;
 }
+.wrapper-vid {
+  position: relative;
+}
 .form {
+  margin-left: 16%;
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 120px;
-}
-.input-wrapper {
-  width: 50%;
+  margin-top: 10%;
 }
 .button {
   font-size: 14px;
   display: flex;
-  background-color: black;
+  background-color: #FF486D;
   color: white;
   border-radius: 10px;
   padding-top: 0.3rem;
@@ -343,72 +229,165 @@ input[type='number'] {
   text-decoration: none;
   position: relative;
   min-height: 50px;
-  margin-top: 30px;
+  margin-top: 10px;
   border: none;
 }
-
-@media screen and (max-width: 1300px) {
-  .image {
-    height: 200px;
-  }
+.wrapper-blocks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.block-img {
+  width: 33%;
+  height: 300px;
+}
+.image {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  position: static;
+}
+.text-img {
+  text-align: center;
+}
+.block-img:nth-child(2) {
+  margin: 20px;
+}
+.wrapper-bottom {
+  padding: 20px;
+  display: flex;
+  margin-bottom: 50px;
+}
+.wrapper-img-bottom {
+  height: 500px;
+  width: 45%;
+  margin-right: 20px;
+}
+.img-bottom {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  position: static;
+}
+.wrapper-text-bottom {
+  width: 55%;
+  background-color: #C8E8E3;
+  display: flex;
+  padding: 100px;
+  flex-direction: column;
+  justify-content: center;
+}
+.input-wrapper{
+  display: flex;
 }
 @media screen and (max-width: 1200px) {
-  .page {
-    padding-right: 50px;
-    padding-left: 50px;
-  }
-  .top-section {
-    flex-direction: column;
-  }
-  .image {
-    height: unset;
-    width: 100%;
-    margin-bottom: 40px;
-  }
-  .top-section-text {
-    margin-right: 0;
-    margin-left: 0;
+  .nl-title {
+    width: initial;
   }
 }
 @media screen and (max-width: 1000px) {
+  .nl-title {
+    font-size: 32px;
+  }
+  .nl-text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .wrapper-text-bottom, .wrapper-img-bottom {
+    width: 50%;
+  }
+  .wrapper-text-bottom {
+    padding: 60px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .wrapper-bottom {
+    flex-direction: column-reverse;
+    padding-right: 100px;
+    padding-left: 100px;
+  }
+  .wrapper-text-bottom, .wrapper-img-bottom {
+    width: 100%;
+  }
+  .wrapper-img-bottom {
+    height: 280px;
+    margin-right: 0;
+  }
+  .wrapper-text-bottom {
+    padding: 40px;
+    width: auto;
+  }
   .page {
-    padding-right: 20px;
+    padding-bottom: 20px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .wrapper-blocks {
+    flex-direction: column;
+  }
+  .block-img:nth-child(2){
+    margin: initial;
+    margin-bottom: 60px;
+  }
+  .block-img {
+    width: 100%;
+    margin-bottom: 60px;
+  }
+  .nl-text {
+    color: black;
+  }
+  .form {
+    position: initial;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin: auto;
+    margin-top: 50px;
+    max-width: 1380px;
+  }
+  .nl-title {
+   position: absolute;
+    top: 0;
+    margin-top: 15%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .red-line {
+    height: 9px;
+    width: 40px;
+  }
+  .black-line{
+    width: 20px;
+    height: 9px;
+  }
+  .green-line {
+    width: 60px;
+    height: 9px;
+  }
+  header {
+    padding: 10px;
     padding-left: 20px;
-  }
-  .value-proposition {
-    font-size: 34px;
-  }
-  .top-title {
-    font-size: 20px;
+    padding-right: 20px;
   }
   .nl-title {
     font-size: 28px;
+    line-height: 34px;
+    padding: 20px;
+    padding-top: 0;
   }
-  .top-section {
-    padding: 40px;
-  }
-  .top-text {
-    font-size: 16px;
-  }
-  .label-wrapper {
-    flex-direction: column;
-    align-items: center;
+  .form, .page {
     padding-right: 20px;
     padding-left: 20px;
-    padding-top: 90px;
   }
-  .label-main-title {
-    font-size: 22px;
-    width: 70%;
+  .page {
+    padding-top: 60px;
   }
-  .label {
-    margin: 0;
-    margin-bottom: 30px;
-    max-width: initial;
+  .block-img {
+    height: 250px;
   }
-  .input-wrapper {
-    width: 100%;
-    display: flex;
+  .wrapper-bottom {
+    flex-direction: column-reverse;
+    padding-right: 20px;
+    padding-left: 20px;
   }
 }
 </style>
