@@ -9,38 +9,60 @@
     </header>
     <div>
       <div class="wrapper-vid">
-      <video poster="https://saikle-prod.fra1.digitaloceanspaces.com/large_video_adb52fcefa.jpg" playsinline="" loop="loop" muted="muted" autoplay="autoplay" class="video-home" data-v-36f5bf99="">
-        <source src="/bike_vid.mp4" type="video/mp4" data-v-36f5bf99="">
-        <img alt="" src="https://saikle-prod.fra1.digitaloceanspaces.com/large_video_adb52fcefa.jpg" loading="lazy" data-v-36f5bf99="">
-      </video>
+        <div class="wrapper-img">
+          <img alt="" src="/image-top.jpg" loading="lazy" class="image-top">
+        </div>
         <form class="form" id="nl" @submit.prevent="sendForm">
-          <h1 class="nl-title">Ce projet vélo vous intéresse ?</h1>
-          <p class="nl-text">Inscrivez vous pour être prévenu des actualités et du moment de sa sortie.</p>
-          <div class="input-wrapper">
-            <input required type="email" placeholder="Ajoutez votre email pour en savoir plus" @input="updateEmail" v-model="email">
+          <div class="form-wrapper">
+            <h1 class="nl-title">La solution vélo urbain tout-en-un ? C’est GoodBike !</h1>
+            <p class="nl-text">Bientôt, un vélo fait pour la ville, bien équipé, maintenance, assurance vol et assistance inclus</p>
+            <p class="nl-text">Seulement 22€/mois. Oui, c’est tout.</p>
+            <p class="nl-text">Restez connecté-e</p>
+            <div class="input-wrapper">
+              <input required type="email" placeholder="Ajoutez votre email pour en savoir plus" @input="updateEmail" v-model="email">
+            </div>
+            <p class="nl-text">Découvrez notre premier modèle et réservez en avant-première.</p>
+            <button class="button" type="submit">INSCRIPTION</button>
+            <p v-if="success" class="success">{{success}}</p>
+            <p v-if="error" class="error">{{error}}</p>
           </div>
-          <button class="button" type="submit">INSCRIPTION</button>
-          <p v-if="success" class="success">{{success}}</p>
-          <p v-if="error" class="error">{{error}}</p>
         </form>
       </div>
       <div class="page">
-        <h2 class="subtitle">La nouvelle maketplace des vélos d'occasion</h2>
+        <h2 class="subtitle">EXLPOREZ LA VILLE SANS LIMITES</h2>
         <div class="wrapper-blocks">
-          <div class="block-img"><img src="/image.jpg" alt="" class="image"><p class="text-img">Achetez un super vélo</p></div>
-          <div class="block-img"><img src="/image.jpg" alt="" class="image"><p class="text-img">Achetez un super vélo</p></div>
-          <div class="block-img"><img src="/image.jpg" alt="" class="image"><p class="text-img">Achetez un super vélo</p></div>
+          <div class="block-img"><img src="/square_gauche.jpg" alt="" class="image"><p class="text-img">Maintenance mécanique et assistance par téléphone et messagerie incluses</p></div>
+          <div class="block-img"><img src="/square_centre.jpg" alt="" class="image"><p class="text-img">Assurance anti-vol incluse</p></div>
+          <div class="block-img"><img src="/square_droite.jpg" alt="" class="image"><p class="text-img">Pour seulement 22€ TTC/mois
+            sans engagement</p></div>
         </div>
+      </div>
+      <div>
+        <p v-for="data in json_data">{{data.email}}</p>
       </div>
       <div class="wrapper-bottom">
         <div class="wrapper-img-bottom">
-          <img src="/image-bottom.jpg" alt="" class="" class="img-bottom">
+          <img src="/bottom.jpg" alt="" class="" class="img-bottom">
         </div>
         <div class="wrapper-text-bottom">
-          <h2>Le confort d'un chez-soi, en déplacement
+          <h2 class="subtitle-bottom">1000 vélos disponibles le 4 avril 2022 !
           </h2>
-          <p>Pour un voyage d'affaires ou si vous vous installez dans une nouvelle ville, trouvez des logements et des boutiques-hôtels ayant reçu des commentaires 5 étoiles de la part d'autres voyageurs d'affaires.</p>
+          <p class="text-bottom">Il n’y en aura pas pour tout le monde.</p>
+          <p class="text-bottom">Rejoignez l’aventure pour découvrir le modèle en avant-première
+            et réserver votre GoodBike au printemps prochain.</p>
         </div>
+      </div>
+      <div class="wrapper-form-bottom">
+      <form action="" @submit.prevent="sendForm" class="form-bottom">
+        <div class="input-wrapper">
+          <input required type="email" placeholder="Ajoutez votre email pour en savoir plus" @input="updateEmail" v-model="email">
+        </div>
+        <p class="nl-text form-text-bottom">Découvrez notre premier modèle et réservez en avant-première.</p>
+        <button class="button" type="submit">INSCRIPTION</button>
+        <p v-if="success" class="success">{{success}}</p>
+        <p v-if="error" class="error">{{error}}</p>
+      </form>
+
       </div>
     </div>
   </div>
@@ -55,7 +77,10 @@ export default {
       text: '',
       isLoading: false,
       success: null,
-      error: null
+      error: null,
+      list: [],
+      json_data: [
+      ],
     }
   },
   methods: {
@@ -104,6 +129,11 @@ export default {
 }
 .video-home {
   width: 100%;
+}
+.image-top {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 .subtitle {
   text-align: center;
@@ -162,12 +192,11 @@ header {
   font-size: 46px;
   color: white;
   font-weight: bold;
-  width: 380px;
+  width: 420px;
   line-height: 50px;
 }
 .nl-text {
   color: white;
-  margin-top: 20px;
   margin-bottom: 20px;
   max-width: 350px;
   width: 280px;
@@ -201,13 +230,19 @@ input[type='number'] {
   position: relative;
 }
 .form {
-  margin-left: 16%;
+  background-color: rgba(0,0,0, 0.2);
   position: absolute;
   top: 0;
   left: 0;
   display: flex;
   flex-direction: column;
-  margin-top: 10%;
+  height: 100%;
+  width: 100%;
+}
+.form-wrapper {
+  margin-left: 16%;
+  margin-top: 8%;
+  width: fit-content;
 }
 .button {
   font-size: 14px;
@@ -280,14 +315,30 @@ input[type='number'] {
 .input-wrapper{
   display: flex;
 }
-@media screen and (max-width: 1200px) {
-  .nl-title {
-    width: initial;
-  }
+.subtitle-bottom {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.text-bottom {
+  font-size: 20px;
+}
+.wrapper-form-bottom {
+  width: fit-content;
+  margin: auto;
+}
+.form-bottom {
+  margin-right: 100px;
+  margin-left: 100px;
+  padding-bottom: 100px;
+}
+.form-text-bottom {
+  color: black;
+margin-top: 10px;
 }
 @media screen and (max-width: 1000px) {
   .nl-title {
     font-size: 32px;
+    width: 430px;
   }
   .nl-text {
     margin-top: 10px;
@@ -333,21 +384,42 @@ input[type='number'] {
     width: 100%;
     margin-bottom: 60px;
   }
+}
+@media screen and (max-width: 800px) {
+  .nl-title {
+    position: absolute;
+    top: 100px;
+    width: 290px;
+  }
   .nl-text {
+    width: 100%;
     color: black;
   }
+  .form-wrapper {
+    margin: initial;
+    margin-top: 50px;
+    width: 100%;
+  }
   .form {
+    background-color: transparent;
     position: initial;
     padding-right: 100px;
     padding-left: 100px;
-    margin: auto;
-    margin-top: 50px;
     max-width: 1380px;
+    width: initial;
   }
-  .nl-title {
-   position: absolute;
-    top: 0;
-    margin-top: 15%;
+  .subtitle {
+    font-size: 20px;
+  }
+  .subtitle-bottom {
+    font-size: 26px;
+  }
+  .text-bottom {
+    font-size: 16px;
+  }
+  .form-bottom {
+    margin-right: 20px;
+    margin-left: 20px;
   }
 }
 @media screen and (max-width: 700px) {
